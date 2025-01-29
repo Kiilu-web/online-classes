@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Payment</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+   
+   <!-- Stripe JavaScript -->
+   <script src="https://js.stripe.com/v3/"></script>
+   <script src="js/payment.js" defer></script>
+</head>
+<body>
+
+<header class="header">
+   <section class="flex">
+      <a href="home.html" class="logo">Educa.</a>
+      
+      <form action="search.html" method="post" class="search-form">
+         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+
+      <div class="icons">
+         <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="search-btn" class="fas fa-search"></div>
+         <div id="user-btn" class="fas fa-user"></div>
+         <div id="toggle-btn" class="fas fa-sun"></div>
+      </div>
+   </section>
+</header>
+
+<section class="form-container">
+   <form id="payment-form">
+      <h3>Course Payment</h3>
+      <div class="course-details">
+         <h4>Course: <span id="course-name"></span></h4>
+         <p>Price: $<span id="course-price"></span></p>
+      </div>
+      
+      <div class="payment-method">
+         <p>Select Payment Method <span>*</span></p>
+         <select name="payment_method" class="box" required>
+            <option value="card">Credit/Debit Card</option>
+            <option value="paypal">PayPal</option>
+         </select>
+      </div>
+
+      <div id="card-element" class="box">
+         <!-- Stripe Card Element will be inserted here -->
+      </div>
+
+      <div id="card-errors" class="message error" role="alert"></div>
+
+      <button type="submit" class="btn">Pay Now</button>
+      <div id="msg" class="message"></div>
+   </form>
+</section>
+
+</body>
+</html> 
